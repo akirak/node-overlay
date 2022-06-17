@@ -6,6 +6,10 @@
       url = "github:svanderburg/node2nix";
       flake = false;
     };
+    # pnpm = {
+    #   url = "github:pnpm/pnpm";
+    #   flake = false;
+    # };
   };
 
   outputs = {
@@ -31,12 +35,7 @@
           };
         in {
           packages = flake-utils.lib.flattenTree {
-            inherit (pkgs.nodePackages) node2nix;
+            inherit (pkgs.nodePackages) node2nix pnpm;
           };
-
-          # devShells.default = pkgs.mkShell {
-          #   buildInputs = [
-          #   ];
-          # };
         });
 }
