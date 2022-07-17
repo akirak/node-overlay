@@ -2,6 +2,7 @@
   description = "Minimal flake project";
 
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
     node2nix = {
       url = "github:svanderburg/node2nix";
       flake = false;
