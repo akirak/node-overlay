@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-nix run .#node2nix -- -i node-packages.json -16
+nix run .#node2nix -- -i node-packages.json -18
