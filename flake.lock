@@ -33,15 +33,16 @@
     "node2nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1653227418,
-        "narHash": "sha256-UdGGwdFQ2JzPSjE48QA2Ugqg1icQCjTNDW1HmHi68Zc=",
-        "owner": "svanderburg",
+        "lastModified": 1658084059,
+        "narHash": "sha256-jx4dRN+TtDqaHb41Jx9TQwZTAl1ozhoPksaOw4sVzzI=",
+        "owner": "akirak",
         "repo": "node2nix",
-        "rev": "9377fe4a45274fab0c7faba4f7c43ffae8421dd2",
+        "rev": "d0384d77543ffe42b572f70cc21d8ee3324b7183",
         "type": "github"
       },
       "original": {
-        "owner": "svanderburg",
+        "owner": "akirak",
+        "ref": "nodejs-18",
         "repo": "node2nix",
         "type": "github"
       }

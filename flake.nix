@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     node2nix = {
-      url = "github:svanderburg/node2nix";
+      # url = "github:svanderburg/node2nix";
+      url = "github:akirak/node2nix/nodejs-18";
       flake = false;
     };
     # pnpm = {
