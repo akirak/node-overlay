@@ -21,23 +21,31 @@
       ...
   } @ inputs:
     let
-      overlay = import ./overlay.nix inputs;
+      makeOverlay = import ./overlay.nix inputs;
     in
       {
-        overlays.default = overlay;
+        overlays.node-18 = makeOverlay "node-18";
       }
       //
       flake-utils.lib.eachDefaultSystem
         (system: let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [
-              overlay
-            ];
           };
+
+          node2nix = (import inputs.node2nix {
+            inherit pkgs system;
+          }).package;
+
+          makeUpdater = directory: flag: pkgs.writeShellScript "run-node2nix" ''
+            set -euo pipefail
+            cd "${directory}"
+            ${node2nix}/bin/node2nix -i node-packages.json ${flag}
+          '';
         in {
-          packages = flake-utils.lib.flattenTree {
-            inherit (pkgs.nodePackages) node2nix pnpm;
+          apps.update-node18 = {
+            type = "app";
+            program = "${makeUpdater "node-18" "-18"}";
           };
         });
 }

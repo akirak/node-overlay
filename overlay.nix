@@ -1,7 +1,8 @@
 inputs:
+directory:
 final: prev:
 let
-  nodePackages = import (inputs.self.outPath + "/default.nix") {
+  nodePackages = import (inputs.self.outPath + "/${directory}/default.nix") {
     pkgs = prev;
     inherit (prev) system;
   };
